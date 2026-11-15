@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certificates | Michael E. Piang</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f8fafc;--card:#fff;--text:#202b38;--muted:#697586;--accent:#2563eb;--line:#e6eaf0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Poppins,sans-serif;background:var(--bg);color:var(--text);line-height:1.7}
+a{color:inherit;text-decoration:none}
+.container{width:min(1120px,90%);margin:auto}
+header{background:#fff;border-bottom:1px solid var(--line)}
+nav{min-height:76px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.logo{font-size:19px;font-weight:800}.logo span{color:var(--accent)}
+.navlinks{display:flex;gap:22px;flex-wrap:wrap}
+.navlinks a{font-size:13px;color:var(--muted)}
+.navlinks a:hover{color:var(--accent)}
+.hero{padding:70px 0 35px}
+.kicker{color:var(--accent);font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase}
+h1,h2,h3{line-height:1.3;letter-spacing:-.5px}
+h1{font-size:clamp(32px,5vw,48px);margin:12px 0}
+.hero p{max-width:700px;color:var(--muted);font-size:14px}
+.btn{display:inline-block;padding:10px 17px;border:1px solid var(--line);border-radius:8px;font-size:12px;font-weight:600;margin-top:20px;background:#fff}
+.btn.primary{background:var(--accent);color:white;border-color:var(--accent)}
+main{padding-bottom:75px}
+.cert-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;margin-top:25px}
+.cert-card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:25px;display:flex;flex-direction:column;min-height:255px;transition:.2s}
+.cert-card:hover{transform:translateY(-3px);box-shadow:0 12px 30px #1e293b0c}
+.icon{width:44px;height:44px;border-radius:10px;background:#eff6ff;color:var(--accent);display:grid;place-items:center;font-size:15px;font-weight:800}
+h3{font-size:16px;margin:18px 0 8px}
+.cert-card p{font-size:12px;color:var(--muted)}
+.cert-card small{font-size:11px;color:var(--muted);margin-top:8px}
+.cert-card a{color:var(--accent);font-size:12px;font-weight:600;margin-top:auto;padding-top:20px}
+.note{margin-top:25px;color:var(--muted);font-size:11px}
+footer{border-top:1px solid var(--line);padding:23px 0;color:var(--muted);font-size:11px}
+@media(max-width:800px){.cert-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){nav{padding:18px 0}.cert-grid{grid-template-columns:1fr}.hero{padding-top:45px}}
+</style>
+</head>
+<body>
+<header><div class="container"><nav>
+<a class="logo" href="index.html">MICHAEL<span>.</span></a>
+<div class="navlinks"><a href="index.html">Home / Portfolio</a><a href="#certificates">Certificates</a><a href="index.html#contact">Contact</a></div>
+</nav></div></header>
+
+<div class="container">
+<section class="hero">
+<div class="kicker">Professional Development</div>
+<h1>Certificates & Credentials</h1>
+<p>A collection of professional qualifications, software certificates, and technical training relevant to civil engineering, CAD drafting, construction estimating, and project planning.</p>
+<a class="btn primary" href="index.html">← Back to Portfolio</a>
+</section>
+
+<main id="certificates">
+<div class="cert-grid">
+
+<article class="cert-card">
+<div class="icon">CE</div>
+<h3>Registered Civil Engineer</h3>
+<p>Professional Regulation Commission (PRC), Philippines.</p>
+<small>Professional Credential</small>
+<a href="certificates/prc-civil-engineer.pdf" target="_blank" rel="noopener">View Credential ↗</a>
+</article>
+
+<article class="cert-card">
+<div class="icon">A</div>
+<h3>Autodesk Certificate</h3>
+<p>Autodesk software certification or training. Replace this with the exact title shown on your certificate.</p>
+<small>CAD / BIM Software</small>
+<a href="certificates/autodesk-certificate.pdf" target="_blank" rel="noopener">View Certificate ↗</a>
+</article>
+
+<article class="cert-card">
+<div class="icon">P6</div>
+<h3>Primavera P6 Certificate</h3>
+<p>Project planning and scheduling training. Add the training provider and exact course name.</p>
+<small>Project Planning & Scheduling</small>
+<a href="certificates/primavera-certificate.pdf" target="_blank" rel="noopener">View Certificate ↗</a>
+</article>
+
+<article class="cert-card">
+<div class="icon">PS</div>
+<h3>PlanSwift Certificate</h3>
+<p>Construction estimating or quantity takeoff training. Add the exact title and issuing organization.</p>
+<small>Quantity Takeoff & Estimating</small>
+<a href="certificates/planswift-certificate.pdf" target="_blank" rel="noopener">View Certificate ↗</a>
+</article>
+
+<article class="cert-card">
+<div class="icon">BS</div>
+<h3>Bachelor of Science in Civil Engineering</h3>
+<p>Jose Rizal Memorial State University, Dapitan City.</p>
+<small>June 2024</small>
+<a href="certificates/education-credential.pdf" target="_blank" rel="noopener">View Credential ↗</a>
+</article>
+
+<article class="cert-card">
+<div class="icon">+</div>
+<h3>Additional Certificates & Training</h3>
+<p>Add your other software certificates, engineering seminars, and relevant technical training.</p>
+<small>Additional Professional Development</small>
+<a href="certificates/additional-certificate.pdf" target="_blank" rel="noopener">View Certificate ↗</a>
+</article>
+
+</div>
+
+<p class="note">Important: The certificate names and file links above are placeholders. Replace them with your actual certificate titles and files. Only publish credentials you hold, and remove private information before uploading.</p>
+</main>
+</div>
+
+<footer><div class="container">© <span id="year"></span> Michael E. Piang. All rights reserved.</div></footer>
+<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f9f6">
+  <title>Michael E. Piang | Licensed Civil Engineer & CAD Specialist</title>
+  <meta name="description" content="Portfolio of Michael E. Piang, Licensed Civil Engineer specializing in structural design, CAD drafting, quantity estimation, 3D visualization, and BIM documentation.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg:#f8f9f6;
+      --surface:#fff;
+      --surface-soft:#f0f3ed;
+      --text:#202820;
+      --muted:#6c756d;
+      --accent:#476b55;
+      --accent-hover:#36533f;
+      --border:#e2e7df;
+      --shadow:0 12px 35px rgba(29,45,32,.06);
+      --radius:18px;
+      --header-height:76px;
+    }
+
+    body.dark {
+      --bg:#141a16;
+      --surface:#1c241e;
+      --surface-soft:#242e26;
+      --text:#edf2eb;
+      --muted:#a4afa5;
+      --accent:#a1c6a9;
+      --accent-hover:#c0ddc5;
+      --border:#303b32;
+      --shadow:0 12px 35px rgba(0,0,0,.15);
+    }
+
+    * {box-sizing:border-box;margin:0;padding:0}
+    html {scroll-behavior:smooth;scroll-padding-top:94px}
+    body {
+      font-family:"DM Sans",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.7;
+      transition:background .25s ease,color .25s ease;
+    }
+    img {display:block;max-width:100%}
+    a {color:inherit;text-decoration:none;outline-offset:4px}
+    button {font:inherit;-webkit-tap-highlight-color:transparent}
+    h1,h2,h3,h4 {font-family:"Manrope",sans-serif;line-height:1.25;letter-spacing:-.8px}
+    h2 {font-size:clamp(29px,4vw,42px);font-weight:700}
+    .container {width:min(1120px,calc(100% - 48px));margin-inline:auto}
+    .section {padding:100px 0}
+    .section-label {
+      color:var(--accent);text-transform:uppercase;letter-spacing:2px;
+      font-size:11px;font-weight:700;display:inline-block;margin-bottom:12px
+    }
+    .section-heading {max-width:640px;margin-bottom:38px}
+    .section-heading p {color:var(--muted);margin-top:14px;max-width:580px}
+    .muted {color:var(--muted)}
+    .btn {
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      padding:12px 19px;border-radius:7px;border:1px solid var(--accent);
+      background:var(--accent);color:#fff;font-size:13px;font-weight:700;
+      cursor:pointer;transition:.2s ease
+    }
+    .btn:hover {transform:translateY(-2px);background:var(--accent-hover);border-color:var(--accent-hover)}
+    body.dark .btn {color:#172219}
+    .btn-outline {background:transparent;color:var(--text);border-color:var(--border)}
+    .btn-outline:hover {background:var(--surface-soft);color:var(--text);border-color:var(--accent)}
+    .text-link {display:inline-flex;align-items:center;gap:7px;color:var(--accent);font-size:13px;font-weight:700}
+    .text-link:hover {gap:11px}
+
+    /* Navigation */
+    .header {
+      position:sticky;top:0;z-index:1000;height:var(--header-height);
+      background:var(--bg);border-bottom:1px solid var(--border)
+    }
+    .nav {height:100%;display:flex;align-items:center;justify-content:space-between;gap:25px}
+    .logo {display:flex;align-items:center;gap:11px;flex-shrink:0}
+    .logo-mark {
+      width:38px;height:38px;display:grid;place-items:center;
+      border:1px solid var(--border);border-radius:9px;
+      font-family:"Manrope",sans-serif;font-size:13px;font-weight:800;color:var(--accent)
+    }
+    .logo-text strong {display:block;font-family:"Manrope",sans-serif;font-size:13px;line-height:1.4}
+    .logo-text span {display:block;color:var(--muted);font-size:10px;line-height:1.5}
+    .nav-links {display:flex;align-items:center;gap:18px}
+    .nav-links a {font-size:11px;font-weight:600;color:var(--muted);transition:color .2s}
+    .nav-links a:hover,.nav-links a.active {color:var(--accent)}
+    .nav-actions {display:flex;align-items:center;gap:10px}
+    .icon-btn {
+      width:39px;height:39px;display:grid;place-items:center;background:transparent;
+      color:var(--text);border:1px solid var(--border);border-radius:8px;cursor:pointer;font-size:17px
+    }
+    .icon-btn:hover {background:var(--surface-soft)}
+    .menu-btn {display:none}
+
+    /* Hero */
+    .hero {padding:90px 0 86px}
+    .hero-grid {display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:85px}
+    .availability {display:inline-flex;align-items:center;gap:9px;color:var(--muted);font-size:12px;margin-bottom:25px}
+    .availability-dot {width:8px;height:8px;background:#76a57d;border-radius:50%;box-shadow:0 0 0 4px rgba(118,165,125,.12)}
+    .hero h1 {font-size:clamp(38px,5.2vw,63px);line-height:1.12;letter-spacing:-2.5px;margin-bottom:22px}
+    .hero h1 span {color:var(--accent)}
+    .hero-subtitle {font-family:"Manrope",sans-serif;font-size:15px;font-weight:600;margin-bottom:15px}
+    .hero-description {max-width:535px;font-size:14px;color:var(--muted);line-height:1.9}
+    .hero-buttons {display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+    .hero-meta {display:flex;flex-wrap:wrap;gap:19px;margin-top:28px;color:var(--muted);font-size:11px}
+    .hero-meta span {display:flex;align-items:center;gap:7px}
+    .hero-meta span::before {content:"";width:4px;height:4px;background:var(--accent);border-radius:50%}
+    .hero-photo-wrap {position:relative;max-width:390px;width:100%;justify-self:end}
+    .hero-photo {width:100%;aspect-ratio:4/4.7;object-fit:cover;object-position:center 30%;background:var(--surface-soft);border-radius:13px;border:1px solid var(--border)}
+    .photo-caption {display:flex;justify-content:space-between;align-items:center;gap:12px;padding:17px 2px 0}
+    .photo-caption strong {font-family:"Manrope",sans-serif;font-size:13px}
+    .photo-caption span {color:var(--muted);font-size:11px}
+    .hero-photo-wrap::before {content:"";position:absolute;top:-15px;right:-15px;width:85px;height:85px;border-top:1px solid var(--accent);border-right:1px solid var(--accent);border-radius:0 10px 0 0;pointer-events:none}
+
+    /* Projects */
+    .projects-section,.services-section,.skills-section {background:var(--surface-soft)}
+    .project-toolbar {display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+    .project-filters {display:flex;flex-wrap:wrap;gap:8px}
+    .filter-btn {border:1px solid var(--border);background:var(--surface);color:var(--muted);padding:8px 13px;border-radius:6px;cursor:pointer;font-size:11px;font-weight:600}
+    .filter-btn:hover,.filter-btn.active {background:var(--accent);border-color:var(--accent);color:#fff}
+    body.dark .filter-btn.active {color:#172219}
+    .project-count {color:var(--muted);font-size:12px}
+    .projects-grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+    .project-card {min-width:0;overflow:hidden;background:var(--surface);border:1px solid var(--border);border-radius:12px;transition:transform .25s,box-shadow .25s}
+    .project-card:hover {transform:translateY(-4px);box-shadow:var(--shadow)}
+    .project-card[hidden] {display:none!important}
+    .project-image-link {display:block;overflow:hidden;background:var(--surface-soft)}
+    .project-image {width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .45s}
+    .project-card:hover .project-image {transform:scale(1.035)}
+    .project-image-placeholder {width:100%;aspect-ratio:16/10;display:none;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:24px;text-align:center;color:var(--muted);background:var(--surface-soft)}
+    .placeholder-symbol {font-size:28px;color:var(--accent)}
+    .project-image-placeholder strong {font-family:"Manrope",sans-serif;color:var(--text);font-size:15px}
+    .project-image-placeholder span {font-size:11px}
+    .project-content {padding:23px}
+    .project-topline {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:13px}
+    .project-category {font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--accent)}
+    .project-number {font-size:11px;color:var(--muted)}
+    .project-content h3 {font-size:20px;margin-bottom:10px}
+    .project-content p {color:var(--muted);font-size:12px;line-height:1.8}
+    .project-tags {display:flex;flex-wrap:wrap;gap:7px;margin:17px 0}
+    .project-tags span {padding:5px 9px;border:1px solid var(--border);border-radius:4px;font-size:10px;color:var(--muted)}
+    .project-links {display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-top:15px;border-top:1px solid var(--border)}
+    .project-links a {font-size:11px;font-weight:700;color:var(--accent)}
+    .project-links a:hover {text-decoration:underline}
+    .projects-note {margin-top:28px;padding:17px 19px;border-left:2px solid var(--accent);color:var(--muted);font-size:12px;background:var(--surface)}
+
+    /* About */
+    .about-grid {display:grid;grid-template-columns:.85fr 1.15fr;gap:75px;align-items:start}
+    .about-aside {padding:30px;background:var(--surface-soft);border-radius:12px;border:1px solid var(--border)}
+    .about-aside h3 {font-size:18px;margin-bottom:20px}
+    .credential-item {padding:16px 0;border-bottom:1px solid var(--border)}
+    .credential-item:last-child {border-bottom:none;padding-bottom:0}
+    .credential-item span {display:block;color:var(--muted);font-size:11px;margin-bottom:5px}
+    .credential-item strong {font-family:"Manrope",sans-serif;font-size:13px}
+    .about-copy p {color:var(--muted);font-size:13px;line-height:2;margin:18px 0}
+    .about-highlights {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:28px}
+    .highlight {padding:16px;border:1px solid var(--border);border-radius:9px}
+    .highlight strong {display:block;font-family:"Manrope",sans-serif;font-size:13px;margin-bottom:5px}
+    .highlight span {color:var(--muted);font-size:11px}
+
+    /* Services */
+    .services-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+    .service-card {padding:25px;background:var(--surface);border:1px solid var(--border);border-radius:11px;transition:transform .2s}
+    .service-card:hover {transform:translateY(-3px)}
+    .service-icon {width:43px;height:43px;display:grid;place-items:center;background:var(--surface-soft);color:var(--accent);border-radius:9px;font-size:20px;margin-bottom:22px}
+    .service-card h3 {font-size:16px;margin-bottom:10px}
+    .service-card p {font-size:12px;color:var(--muted);line-height:1.85}
+
+    /* Experience */
+    .experience-grid {display:grid;grid-template-columns:1fr .75fr;gap:80px}
+    .timeline {border-left:1px solid var(--border);padding-left:27px;margin-left:6px}
+    .timeline-item {position:relative;padding-bottom:32px}
+    .timeline-item:last-child {padding-bottom:0}
+    .timeline-item::before {content:"";position:absolute;left:-33px;top:7px;width:11px;height:11px;background:var(--bg);border:2px solid var(--accent);border-radius:50%}
+    .timeline-date {color:var(--accent);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1px}
+    .timeline-item h3 {font-size:16px;margin:8px 0 5px}
+    .timeline-company {color:var(--muted);font-size:11px;margin-bottom:10px}
+    .timeline-item p {color:var(--muted);font-size:12px;line-height:1.85}
+    .education-card {padding:27px;background:var(--surface-soft);border:1px solid var(--border);border-radius:12px;margin-bottom:18px}
+    .education-card h3 {font-size:17px;margin:12px 0 8px}
+    .education-card p {color:var(--muted);font-size:12px;line-height:1.8}
+    .education-label {color:var(--accent);font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase}
+    .experience-disclaimer {color:var(--muted);font-size:10px;line-height:1.7;margin-top:16px}
+
+    /* Skills */
+    .skills-grid {display:grid;grid-template-columns:1fr 1fr;gap:25px}
+    .skill-group {padding:26px;background:var(--surface);border:1px solid var(--border);border-radius:11px}
+    .skill-group h3 {font-size:17px;margin-bottom:20px}
+    .skill-list {display:flex;flex-wrap:wrap;gap:9px}
+    .skill-chip {display:inline-flex;align-items:center;gap:7px;padding:9px 12px;border:1px solid var(--border);border-radius:6px;font-size:11px;color:var(--text)}
+    .skill-chip::before {content:"";width:5px;height:5px;border-radius:50%;background:var(--accent)}
+    .skills-note {margin-top:22px;font-size:11px;color:var(--muted)}
+
+    /* Certificates */
+    .certificates-section {background:var(--bg)}
+    .certificates-grid {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .certificate-card {min-width:0;overflow:hidden;background:var(--surface);border:1px solid var(--border);border-radius:12px;transition:transform .25s,box-shadow .25s}
+    .certificate-card:hover {transform:translateY(-4px);box-shadow:var(--shadow)}
+    .certificate-preview {aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--surface-soft);border-bottom:1px solid var(--border)}
+    .certificate-preview img {width:100%;height:100%;object-fit:contain;padding:10px}
+    .certificate-placeholder {display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;padding:20px;color:var(--muted)}
+    .certificate-placeholder .pdf-icon {font-size:38px;color:var(--accent)}
+    .certificate-placeholder strong {font-family:"Manrope",sans-serif;font-size:14px;color:var(--text)}
+    .certificate-placeholder span {font-size:11px}
+    .certificate-content {padding:20px}
+    .certificate-content h3 {font-size:16px;margin-bottom:7px}
+    .certificate-content p {font-size:12px;color:var(--muted);line-height:1.8;margin-bottom:16px}
+    .certificate-actions {display:flex;gap:9px;flex-wrap:wrap}
+    .certificate-actions .btn {font-size:11px;padding:9px 12px}
+    .certificates-note {margin-top:25px;color:var(--muted);font-size:12px;line-height:1.8}
+
+    /* Contact */
+    .contact-section {padding:100px 0}
+    .contact-panel {padding:54px;background:var(--surface-soft);border:1px solid var(--border);border-radius:15px;display:grid;grid-template-columns:1.15fr .85fr;gap:45px;align-items:center}
+    .contact-panel h2 {margin-bottom:15px}
+    .contact-panel p {max-width:470px;color:var(--muted);font-size:13px;line-height:1.9}
+    .contact-links {display:grid;gap:12px}
+    .contact-link {display:flex;align-items:center;gap:13px;padding:14px;border:1px solid var(--border);border-radius:8px;background:var(--surface);overflow-wrap:anywhere}
+    .contact-link:hover {border-color:var(--accent)}
+    .contact-symbol {color:var(--accent);font-size:18px;flex-shrink:0}
+    .contact-link span {display:block;color:var(--muted);font-size:10px}
+    .contact-link strong {display:block;font-size:12px;margin-top:3px;overflow-wrap:anywhere}
+
+    /* Footer */
+    footer {border-top:1px solid var(--border);padding:24px 0}
+    .footer-inner {display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    footer p,footer a {color:var(--muted);font-size:11px}
+    footer a:hover {color:var(--accent)}
+
+    @media(max-width:1100px) {
+      .nav-links {gap:12px}
+      .nav-links a {font-size:10px}
+      .hero-grid {gap:45px}
+      .about-grid,.experience-grid {gap:45px}
+      .contact-panel {padding:38px}
+    }
+    @media(max-width:800px) {
+      :root {--header-height:68px}
+      .container {width:min(100% - 36px,650px)}
+      .section {padding:72px 0}
+      .nav-links {position:absolute;top:var(--header-height);left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:0;padding:10px 22px 18px;background:var(--bg);border-bottom:1px solid var(--border)}
+      .nav-links.open {display:flex}
+      .nav-links a {padding:12px 0;border-bottom:1px solid var(--border);font-size:13px}
+      .nav-links a:last-child {border-bottom:none}
+      .menu-btn {display:grid}
+      .nav-actions .btn {display:none}
+      .hero {padding:62px 0}
+      .hero-grid {grid-template-columns:1fr;gap:42px}
+      .hero-copy {order:1}
+      .hero-photo-wrap {order:0;justify-self:start;max-width:290px}
+      .hero-photo {aspect-ratio:4/3.7}
+      .hero-photo-wrap::before {width:50px;height:50px;right:-9px;top:-9px}
+      .hero h1 {font-size:clamp(39px,9vw,54px)}
+      .about-grid,.experience-grid,.contact-panel {grid-template-columns:1fr;gap:32px}
+      .about-aside {order:1}
+      .services-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+      .certificates-grid {grid-template-columns:repeat(2,minmax(0,1fr))}
+      .contact-panel {padding:28px}
+    }
+    @media(max-width:540px) {
+      .container {width:calc(100% - 30px)}
+      .section {padding:60px 0}
+      .hero {padding:45px 0 60px}
+      .hero h1 {letter-spacing:-1.7px}
+      .hero-buttons .btn {flex:1}
+      .hero-meta {gap:10px 15px}
+      .projects-grid,.services-grid,.skills-grid,.certificates-grid {grid-template-columns:1fr}
+      .project-content {padding:19px}
+      .project-content h3 {font-size:18px}
+      .about-highlights {grid-template-columns:1fr}
+      .about-aside,.skill-group {padding:21px}
+      .contact-panel {padding:23px}
+      .footer-inner {flex-direction:column;align-items:flex-start;gap:8px}
+      .project-toolbar {align-items:flex-start}
+    }
+    @media(prefers-reduced-motion:reduce) {
+      *,*::before,*::after {scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a href="#home" class="logo" aria-label="Go to homepage">
+        <div class="logo-mark">MP</div>
+        <div class="logo-text">
+          <strong>Michael E. Piang</strong>
+          <span>Engineering Portfolio</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Main navigation">
+        <a href="#home" class="active">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#certificates">Certificates</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">☾</button>
+        <a href="cv.pdf" class="btn" target="_blank" rel="noopener">View Resume ↗</a>
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 01. HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="availability">
+            <span class="availability-dot"></span>
+            Open to suitable freelance and remote opportunities
+          </div>
+          <span class="section-label">Licensed Civil Engineer · Philippines</span>
+          <h1>Michael E.<br><span>Piang.</span></h1>
+          <p class="hero-subtitle">Structural Design & Project Management | 3D Specialist</p>
+          <p class="hero-description">
+            I help turn concepts into clear, coordinated engineering drawings and visual presentations.
+            My work covers building plan documentation, structural analysis, quantity estimation,
+            BIM, CAD drafting, and 3D modeling.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn">Explore My Projects ↘</a>
+         
+          </div>
+          <div class="hero-meta">
+            <span>PRC Licensed Civil Engineer</span>
+            <span>BIM</span>
+            <span>CAD · 3D · Engineering</span>
+          </div>
+        </div>
+
+        <div class="hero-photo-wrap">
+          <img src="profile.jpg" alt="Portrait of Michael E. Piang" class="hero-photo">
+          <div class="photo-caption">
+            <div>
+              <strong>Michael E. Piang</strong>
+              <span>Licensed Civil Engineer</span>
+            </div>
+            <span>Portfolio / 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02. SELECTED PROJECTS -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Selected Work / 01</span>
+          <h2>Projects that show<br>what I can do.</h2>
+          <p>A selection of engineering drawings, structural work, cost estimation, and architectural visualization.</p>
+        </div>
+
+        <div class="project-toolbar">
+          <div class="project-filters" aria-label="Filter projects">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="drafting">CAD & Plans</button>
+            <button class="filter-btn" data-filter="structural">Structural</button>
+            <button class="filter-btn" data-filter="visualization">3D & BIM</button>
+            <button class="filter-btn" data-filter="estimation">Estimation</button>
+          </div>
+          <span class="project-count" id="projectCount" aria-live="polite">6 projects</span>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+
+    
+          <!-- PLAN SET 02 -->
+          <article class="project-card" data-category="drafting">
+            <a class="project-image-link" href="fullplan2.pdf" target="_blank" rel="noopener" aria-label="Open second building plan set">
+              <img class="project-image" src="fullplan2-preview.jpg" alt="Second building plan set preview" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="project-image-placeholder">
+                <span class="placeholder-symbol">▤</span>
+                <strong>Plans and Documentation</strong>
+                <span>Add samples/fullplan2-preview.jpg to display your second preview.</span>
+              </div>
+            </a>
+            <div class="project-content">
+              <div class="project-topline"><span class="project-category">CAD & Documentation</span><span class="project-number">02 / 06</span></div>
+              <h3>Plans and Documentation</h3>
+              <p>Building plan set showcasing technical drawings, project documentation, and coordinated construction details.</p>
+              <div class="project-tags"><span>AutoCAD</span><span>Building Plans</span><span>Technical Drawings</span></div>
+              <div class="project-links"><a href="fullplan2.pdf" target="_blank" rel="noopener">View Plan Set ↗</a></div>
+            </div>
+          </article>
+
+          <!-- STRUCTURAL DESIGN -->
+          <article class="project-card" data-category="structural">
+            <a class="project-image-link" href="samples/structural1.jpg" target="_blank" rel="noopener" aria-label="View structural design sample">
+              <img class="project-image" src="samples/structural1.jpg" alt="Structural design and engineering drawing" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="project-image-placeholder">
+                <span class="placeholder-symbol">⌂</span>
+                <strong>Structural Design</strong>
+                <span>Add your structural drawing preview here.</span>
+              </div>
+            </a>
+            <div class="project-content">
+              <div class="project-topline"><span class="project-category">Structural Engineering</span><span class="project-number">03 / 06</span></div>
+              <h3>Structural Design & Analysis</h3>
+              <p>Structural drawing and analysis work for building projects, with attention to member layout, structural documentation, and coordination with architectural plans.</p>
+              <div class="project-tags"><span>STAAD.Pro</span><span>AutoCAD</span><span>Structural Drawings</span></div>
+              <div class="project-links"><a href="samples/structural1.jpg" target="_blank" rel="noopener">View Sample ↗</a></div>
+            </div>
+          </article>
+
+          <!-- ARCHITECTURAL RENDERING -->
+          <article class="project-card" data-category="visualization">
+            <a class="project-image-link" href="samples/render1.jpg" target="_blank" rel="noopener" aria-label="View architectural visualization">
+              <img class="project-image" src="samples/render1.jpg" alt="Architectural 3D visualization project" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="project-image-placeholder">
+                <span class="placeholder-symbol">◈</span>
+                <strong>Architectural Visualization</strong>
+                <span>Add your first architectural render here.</span>
+              </div>
+            </a>
+            <div class="project-content">
+              <div class="project-topline"><span class="project-category">3D Visualization</span><span class="project-number">04 / 06</span></div>
+              <h3>Architectural 3D Rendering</h3>
+              <p>Three-dimensional modeling and visual presentation to communicate building form, materials, spatial arrangement, and design intent.</p>
+              <div class="project-tags"><span>SketchUp</span><span>Enscape</span><span>3D Modeling</span></div>
+              <div class="project-links"><a href="samples/render1.jpg" target="_blank" rel="noopener">View Render ↗</a></div>
+            </div>
+          </article>
+
+          <!-- 3D MODELING & BIM -->
+          <article class="project-card" data-category="visualization">
+            <a class="project-image-link" href="samples/render2.jpg" target="_blank" rel="noopener" aria-label="View second 3D visualization">
+              <img class="project-image" src="samples/render2.jpg" alt="Second architectural 3D visualization project" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="project-image-placeholder">
+                <span class="placeholder-symbol">▧</span>
+                <strong>3D Modeling & Presentation</strong>
+                <span>Add your second render or BIM project preview.</span>
+              </div>
+            </a>
+            <div class="project-content">
+              <div class="project-topline"><span class="project-category">3D & BIM</span><span class="project-number">05 / 06</span></div>
+              <h3>Architectural Modeling & Presentation</h3>
+              <p>Architectural modeling and presentation work for communicating design concepts, spatial relationships, materials, and project details.</p>
+              <div class="project-tags"><span>SketchUp</span><span>Revit</span><span>Visualization</span></div>
+              <div class="project-links"><a href="samples/render2.jpg" target="_blank" rel="noopener">View Project ↗</a></div>
+            </div>
+          </article>
+
+          <!-- ESTIMATION -->
+          <article class="project-card" data-category="estimation">
+            <a class="project-image-link" href="fullplan1.pdf" target="_blank" rel="noopener" aria-label="Open estimation sample">
+              <img class="project-image" src="estimate-preview.jpg" alt="Quantity estimation and project documentation preview" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+              <div class="project-image-placeholder">
+                <span class="placeholder-symbol">▦</span>
+                <strong>Quantity Takeoff & Estimates</strong>
+                <span>Add samples/estimate-preview.jpg as a preview.</span>
+              </div>
+            </a>
+            <div class="project-content">
+              <div class="project-topline"><span class="project-category">Estimation</span><span class="project-number">06 / 06</span></div>
+              <h3>Quantity Takeoff & Cost Estimation</h3>
+              <p>Preparation of quantity takeoffs, bills of quantities, bills of materials, and cost estimates for building works and project planning.</p>
+              <div class="project-tags"><span>PlanSwift</span><span>BOQ / BOM</span><span>Cost Estimation</span></div>
+              <div class="project-links"><a href="fullplan1.pdf" target="_blank" rel="noopener">View Sample Document ↗</a></div>
+            </div>
+          </article>
+        </div>
+
+             </div>
+    </section>
+
+    <!-- 03. ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">About Me / 02</span>
+          <h2>Engineering knowledge.<br>Practical execution.</h2>
+        </div>
+        <div class="about-grid">
+          <aside class="about-aside">
+            <h3>Professional Background</h3>
+            <div class="credential-item"><span>Professional Credential</span><strong>Licensed Civil Engineer</strong></div>
+            <div class="credential-item"><span>Degree</span><strong>Bachelor of Science in Civil Engineering</strong></div>
+            <div class="credential-item"><span>University</span><strong>Jose Rizal Memorial State University</strong></div>
+            <div class="credential-item"><span>Location</span><strong>Zamboanga del Norte, Philippines</strong></div>
+          </aside>
+
+          <div class="about-copy">
+            <span class="section-label">Who I Am</span>
+            <h2>A civil engineer focused on practical design and documentation.</h2>
+            <p>I am a Licensed Civil Engineer with experience in engineering drafting, building plan preparation, structural analysis, cost estimation, and project implementation support.</p>
+            <p>My background includes work related to residential building plans, government infrastructure projects, quantity documentation, site inspections, and project coordination. These experiences have helped me understand both technical drawings and the practical requirements of project execution.</p>
+            <p>I use AutoCAD, SketchUp, Enscape, and STAAD.Pro in my workflow, while continuing to develop my capabilities in Revit and BIM documentation. I am interested in collaborating with engineering firms, contractors, architects, and clients who need reliable technical drafting and design support.</p>
+            <div class="about-highlights">
+              <div class="highlight"><strong>Engineering</strong><span>Plans, structural analysis, documentation</span></div>
+              <div class="highlight"><strong>Technical Drafting</strong><span>CAD drawings and technical documentation</span></div>
+              <div class="highlight"><strong>Estimation</strong><span>Quantity takeoff, BOQ, BOM, cost estimates</span></div>
+              <div class="highlight"><strong>Visualization</strong><span>3D modeling and structural and architectural presentation</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04. SERVICES -->
+    <section class="section services-section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Services / 03</span>
+          <h2>How I can support<br>your next project.</h2>
+          <p>Flexible engineering and drafting support for project documentation, design development, estimation, and visualization.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card"><div class="service-icon">▤</div><h3>AutoCAD Drafting</h3><p>Preparation, revision, and cleanup of technical drawings, floor plans, elevations, sections, details, and construction documentation.</p></article>
+          <article class="service-card"><div class="service-icon">⌂</div><h3>Structural Design Support</h3><p>Structural modeling, analysis support, structural drawings, and coordination with architectural documentation within the agreed scope.</p></article>
+          <article class="service-card"><div class="service-icon">▦</div><h3>Quantity Takeoff & Estimation</h3><p>Material quantity takeoffs, bills of quantities, bills of materials, and construction cost estimates.</p></article>
+          <article class="service-card"><div class="service-icon">◈</div><h3>3D Modeling & Rendering</h3><p>Architectural models, interior and exterior visualizations, and presentation images to communicate design intent.</p></article>
+          <article class="service-card"><div class="service-icon">▧</div><h3>Revit & BIM Documentation</h3><p>BIM modeling, drawing views, sheets, and documentation support as appropriate to the project scope and model requirements.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 05. EXPERIENCE & EDUCATION -->
+    <section class="section" id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Experience & Credentials / 04</span>
+          <h2>My professional journey.</h2>
+          <p>Relevant employment, freelance experience, and educational background.</p>
+        </div>
+
+        <div class="experience-grid">
+          <div>
+            <h3 style="font-size:20px;margin-bottom:30px;">Work Experience</h3>
+            <div class="timeline">
+              <article class="timeline-item">
+                <span class="timeline-date">2024 – Present</span>
+                <h3>Freelance Civil Engineer</h3>
+                <div class="timeline-company">Independent Projects</div>
+                <p>Prepared comprehensive building plan sets for permit applications and project documentation. Conducted structural analysis and developed construction cost estimates to support project budgeting, permit requirements, and successful execution. Worked across technical drawings and engineering deliverables in line with each project’s scope and requirements.</p>
+              </article>
+              <article class="timeline-item">
+                <span class="timeline-date">October 2025 – October 2026</span>
+                <h3>CAD / Site Engineer</h3>
+                <div class="timeline-company">Wilmar Edible Oil Philippines Incorporated · President Manuel A. Roxas, Zamboanga del Norte</div>
+                <p>Prepared electrical layout drawings for lighting, power, and CCTV systems. Developed steel fabrication shop drawings for racks, cabinets, structural supports, and temporary heavy-duty platforms. Documented plant-wide cable tray routing and coordination, and created 3D as-built and proposed building models to support routing, clash detection, and multidisciplinary coordination.</p>
+              </article>
+              <article class="timeline-item">
+                <span class="timeline-date">March 2025 – October 2025</span>
+                <h3>Engineering Assistant</h3>
+                <div class="timeline-company">Local Government Unit · President Manuel A. Roxas, Zamboanga del Norte</div>
+                <p>Supported municipal and barangay infrastructure concerns involving slope protection, drainage canals, road concreting, and vertical infrastructure. Prepared project plan sets and Programs of Work, including bills of quantities and materials (BOQ/BOM), and conducted project inspections and monitoring.</p>
+              </article>
+             </div>
+            <p class="experience-disclaimer"</p>
+          </div>
+
+           <div>
+            <h3 style="font-size:20px;margin-bottom:30px;">Education & Credentials</h3>
+            <div class="education-card">
+              <span class="education-label">Professional License</span>
+              <h3>Registered Civil Engineer</h3>
+              <p>Professional Regulation Commission (PRC)<br>Licensure examination passed — November 2024</p>
+            </div>
+            <div class="education-card">
+              <span class="education-label">Education</span>
+              <h3>Bachelor of Science in Civil Engineering</h3>
+              <p>Jose Rizal Memorial State University<br>Dapitan City, Philippines<br>Graduated June 2024</p>
+            </div>
+            <div class="education-card">
+              <span class="education-label">Professional Documents</span>
+              <h3>Resume & Project Samples</h3>
+              <p>Review my resume and selected technical work samples to learn more about my background and capabilities.</p>
+              <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;">
+                <a href="cv.pdf" class="btn" target="_blank" rel="noopener">View Resume ↗</a>
+                <a href="fullplan.pdf" class="btn btn-outline" target="_blank" rel="noopener">View Plans ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06. SKILLS -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Technical Skills / 05</span>
+          <h2>The tools behind<br>my workflow.</h2>
+          <p>Software and technical capabilities used across engineering, drafting, estimation, and visualization.</p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-group"><h3>Design & Drafting</h3><div class="skill-list"><span class="skill-chip">AutoCAD</span><span class="skill-chip">SketchUp</span><span class="skill-chip">Autodesk Revit</span></div></div>
+          <div class="skill-group"><h3>Engineering & Analysis</h3><div class="skill-list"><span class="skill-chip">STAAD.Pro</span><span class="skill-chip">ETABS</span><span class="skill-chip">Microsft Excell</span></div></div>
+          <div class="skill-group"><h3>Visualization & BIM</h3><div class="skill-list"><span class="skill-chip">Enscape</span><span class="skill-chip">D5 Render</span><span class="skill-chip">Autodesk Revit</span></div></div>
+          <div class="skill-group"><h3>Estimation & Project Tools</h3><div class="skill-list"><span class="skill-chip">PlanSwift</span><span class="skill-chip">Microsoft Excell</span><span class="skill-chip">Bluebeam Revu</span><span class="skill-chip">Primavera P6</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07. CERTIFICATES -->
+    <section class="section certificates-section" id="certificates">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-label">Certificates / 06</span>
+          <h2>Credentials that support<br>my professional growth.</h2>
+          <p>Selected certificates, training records, and professional documents. Open a certificate image for a closer look or open the PDF when available.</p>
+        </div>
+
+        <div class="certificates-grid">
+          <!-- CERTIFICATE 01: AUTODESK -->
+          <article class="certificate-card">
+            <a class="certificate-preview" href="certificates/certificate%201.pdf" target="_blank" rel="noopener" aria-label="Open Autodesk certificate PDF">
+              <img src="certificates/certificate%201.jpg" alt="Autodesk certificate" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.certificate-placeholder').style.display='flex';">
+              <div class="certificate-placeholder" style="display:none">
+                <span class="pdf-icon">▤</span><strong>Autodesk</strong><span>Add a certificate image or PDF.</span>
+              </div>
+            </a>
+            <div class="certificate-content">
+              <h3>Autodesk Certificate</h3>
+              <p>Software training or certification record.</p>
+              <div class="certificate-actions">
+                <a class="btn" href="certificates/certificate%201.pdf" target="_blank" rel="noopener">Open PDF ↗</a>
+                <a class="btn btn-outline" href="certificates/certificate%201.jpg" target="_blank" rel="noopener">View Image ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CERTIFICATE 02: PLANSWIFT & PRIMAVERA P6 -->
+          <article class="certificate-card">
+            <a class="certificate-preview" href="certificates/certificate%202.pdf" target="_blank" rel="noopener" aria-label="Open PlanSwift and Primavera P6 certificate PDF">
+              <img src="certificates/certificate%202.jpg" alt="PlanSwift and Primavera P6 combined certificate" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.certificate-placeholder').style.display='flex';">
+              <div class="certificate-placeholder" style="display:none">
+                <span class="pdf-icon">▤</span><strong>PlanSwift &amp; Primavera P6</strong><span>Add the combined certificate image or PDF.</span>
+              </div>
+            </a>
+            <div class="certificate-content">
+              <h3>PlanSwift &amp; Primavera P6 Certificate</h3>
+              <p>Combined training certificate covering quantity takeoff and project planning and scheduling.</p>
+              <div class="certificate-actions">
+                <a class="btn" href="certificates/certificate%202.pdf" target="_blank" rel="noopener">Open PDF ↗</a>
+                <a class="btn btn-outline" href="certificates/certificate%202.jpg" target="_blank" rel="noopener">View Image ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- CERTIFICATE 04: STRUCTURAL ANALYSIS AND DESIGN -->
+          <article class="certificate-card">
+            <a class="certificate-preview" href="certificates/certificate%204.pdf" target="_blank" rel="noopener" aria-label="Open Structural Analysis and Design certificate PDF">
+              <img src="certificates/certificate%204.jpg" alt="Structural Analysis and Design certificate" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.certificate-placeholder').style.display='flex';">
+              <div class="certificate-placeholder" style="display:none">
+                <span class="pdf-icon">▤</span><strong>Structural Analysis &amp; Design</strong><span>Add the certificate image or PDF.</span>
+              </div>
+            </a>
+            <div class="certificate-content">
+              <h3>Structural Analysis and Design Certificate</h3>
+              <p>Certificate slot for your Structural Analysis and Design training credential.</p>
+              <div class="certificate-actions">
+                <a class="btn" href="certificates/certificate%204.pdf" target="_blank" rel="noopener">Open PDF ↗</a>
+                <a class="btn btn-outline" href="certificates/certificate%204.jpg" target="_blank" rel="noopener">View Image ↗</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ADDITIONAL CERTIFICATE: ONE DISPLAY CARD, TWO JPG FILES -->
+          <article class="certificate-card">
+            <a class="certificate-preview" href="certificates/additional%20certificate%201.jpg" target="_blank" rel="noopener" aria-label="View additional certificate image 1">
+              <img src="certificates/additional%20certificate%201.jpg" alt="Additional Certificate" loading="lazy" onerror="this.style.display='none';this.parentElement.querySelector('.certificate-placeholder').style.display='flex';">
+              <div class="certificate-placeholder" style="display:none">
+                <span class="pdf-icon">▧</span><strong>Additional Certificate</strong><span>Use the image links below to view your certificates.</span>
+              </div>
+            </a>
+            <div class="certificate-content">
+              <h3>Additional Certificate</h3>
+              <p>Additional training records and professional credentials collected in one place.</p>
+              <div class="certificate-actions">
+                <a class="btn" href="certificates/additional%20certificate%201.jpg" target="_blank" rel="noopener">View Image 1 ↗</a>
+                <a class="btn btn-outline" href="certificates/additional%20certificate%202.jpg" target="_blank" rel="noopener">View Image 2 ↗</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+    </section>
+
+    <!-- 08. CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <span class="section-label">Contact / 07</span>
+            <h2>Have a project<br>in mind?</h2>
+            <p>I am open to suitable freelance assignments, remote drafting work, and engineering collaboration. Feel free to reach out to discuss your project requirements and how I can help.</p>
+            <div style="margin-top:24px;"><a href="mailto:mikelpiang.27@gmail.com" class="btn">Let's Talk ↗</a></div>
+          </div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:mikelpiang.27@gmail.com">
+              <span class="contact-symbol">✉</span><div><span>Email</span><strong>mikelpiang.27@gmail.com</strong></div>
+            </a>
+            <a class="contact-link" href="https://wa.me/639386603335" target="_blank" rel="noopener" aria-label="Contact Michael on WhatsApp">
+              <span class="contact-symbol">☏</span><div><span>WhatsApp</span><strong>+63 938 660 3335</strong></div>
+            </a>
+            <a class="contact-link" href="https://www.linkedin.com/in/michael-etam-piang/" target="_blank" rel="noopener">
+              <span class="contact-symbol">↗</span><div><span>Professional Network</span><strong>Connect on LinkedIn</strong></div>
+            </a>
+            <div class="contact-link">
+              <span class="contact-symbol">⌖</span><div><span>Based In</span><strong>Zamboanga del Norte, Philippines</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="currentYear"></span> Michael E. Piang. All rights reserved.</p>
+      <a href="#home">Back to top ↑</a>
+      <p>Designed for engineering & drafting opportunities.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Dark mode
+    const themeToggle = document.getElementById("themeToggle");
+    themeToggle.addEventListener("click", function () {
+      const isDark = document.body.classList.toggle("dark");
+      themeToggle.textContent = isDark ? "☀" : "☾";
+      themeToggle.setAttribute("aria-label", isDark ? "Switch to light mode" : "Switch to dark mode");
+    });
+
+    // Project filters
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+    const projectCount = document.getElementById("projectCount");
+
+    function filterProjects(category) {
+      let visibleCount = 0;
+      projectCards.forEach(function (card) {
+        const matches = category === "all" || card.dataset.category === category;
+        card.hidden = !matches;
+        if (matches) visibleCount++;
+      });
+      projectCount.textContent = visibleCount + (visibleCount === 1 ? " project" : " projects");
+    }
+
+    filterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        filterButtons.forEach(function (item) { item.classList.remove("active"); });
+        button.classList.add("active");
+        filterProjects(button.dataset.filter);
+      });
+    });
+
+    // Active navigation section
+    const sections = document.querySelectorAll("main section[id]");
+    const navItems = document.querySelectorAll(".nav-links a");
+
+    if ("IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            navItems.forEach(function (link) {
+              link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id);
+            });
+          }
+        });
+      }, { rootMargin: "-25% 0px -60% 0px" });
+
+      sections.forEach(function (section) { sectionObserver.observe(section); });
+    }
+
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
